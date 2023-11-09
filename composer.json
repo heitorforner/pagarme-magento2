@@ -1,12 +1,12 @@
 {
-    "name": "pagarme/pagarme-magento2-module",
+    "name": "heitorforner/pagarme-magento2",
     "license": "MIT",
     "version": "2.3.0",
     "type": "magento2-module",
-    "description": "Magento 2 Module Pagar.me",
+    "description": "Fork of Magento 2 Module Pagar.me",
     "require": {
         "php": ">=7.1",
-        "pagarme/ecommerce-module-core": "2.3.*"
+        "heitorforner/pagarme-ecommerce-module-core": "2.3.*"
     },
     "require-dev": {
         "phpunit/phpunit": "4.1.0",
@@ -25,7 +25,7 @@
     },
     "authors":[
         {
-            "name":"Open Source Team"
+            "name":"Pagarme Open Source Team, fork by Heitor Forner"
         }
     ],
     "scripts": {
