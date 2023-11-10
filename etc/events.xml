@@ -32,10 +32,10 @@
         <observer name="Pagarme_DataValidateAdmin" instance="Pagarme\Pagarme\Observer\DataValidateAdmin" />
     </event>
     <event name="adminhtml_customer_prepare_save">
-        <observer name="pagarme_payment_adminhtml_customer_prepare_save" instance="Pagarme\Pagarme\Observer\AdminCustomerBeforeSave" />
+        <observer name="pagarme_payment_adminhtml_customer_prepare_save" instance="Pagarme\Pagarme\Observer\AdminCustomerBeforeSave" disabled="true" />
     </event>
     <event name="customer_address_save_before">
-        <observer name="pagarme_customer_address_before_save_viv_observer" instance="\Pagarme\Pagarme\Observer\CustomerAddressSaveBefore" />
+        <observer name="pagarme_customer_address_before_save_viv_observer" instance="\Pagarme\Pagarme\Observer\CustomerAddressSaveBefore" disabled="true" />
     </event>
     <event name="payment_method_is_active">
         <observer name="custom_payment" instance="Pagarme\Pagarme\Observer\PaymentMethodAvailable" />
