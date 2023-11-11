@@ -6,7 +6,7 @@
     "description": "Fork of Magento 2 Module Pagar.me",
     "require": {
         "php": ">=7.1",
-        "heitorforner/pagarme-ecommerce-module-core": "2.3.*"
+        "heitorforner/pagarme-ecommerce-module-core": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "4.1.0",
