@@ -11,6 +11,17 @@
 ?>
 
 <?php if ($this->getBilletUrl()): ?>
-    <hr />
-    <a class="action tocart primary" id="pagarme-link-boleto" href="<?php echo $this->getBilletUrl() ?>" target="_blank"><?php echo __('Print Billet') ?></a>
+
+    <div align="center">
+        <table width="85%" style="border-collapse: collapse; border: none;">
+            <tr style="border: none;">
+                <td align="center" style="border: none;">
+                    <hr />
+                    <a class="action tocart primary" id="pagarme-link-boleto" href="<?php echo $this->getBilletUrl() ?>" target="_blank"><?php echo __('Print Billet') ?></a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    
 <?php endif ?>
+
