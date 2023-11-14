@@ -129,7 +129,7 @@ class Notifications extends Message
     {
         $this->addEnvorimentMessages();
         $this->addConfigMessages();
-        $this->addDashSettingsMessages();
+        //$this->addDashSettingsMessages();
     }
 
     /**
