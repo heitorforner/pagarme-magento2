@@ -43,12 +43,12 @@
 
     <event name="order_cancel_after">
         <observer name="cancel_order_at_pagarme"
-                  instance="Pagarme\Pagarme\Observer\OrderCancelAfter" />
+                  instance="Pagarme\Pagarme\Observer\OrderCancelAfter" disabled="true" />
     </event>
 
     <event name="sales_order_payment_refund">
         <observer name="cancel_order_at_pagarme_via_payment_refund"
-                  instance="Pagarme\Pagarme\Observer\OrderCancelAfter" />
+                  instance="Pagarme\Pagarme\Observer\OrderCancelAfter" disabled="true" />
     </event>
 
     <event name="checkout_cart_product_add_after">

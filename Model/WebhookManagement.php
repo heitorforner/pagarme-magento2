@@ -60,6 +60,33 @@ class WebhookManagement implements WebhookManagementInterface
                 ];
             }
 
+            //check if is a finished order
+
+            if(
+                in_array(
+                    $this->magentoOrderStatus($data),
+                    array("complete","canceled","closed")
+                )
+            ){
+
+                return [
+                    "message" => "Webhook Received",
+                    "code" => 200
+                ];
+
+            }
+
+            //check if is a paid order
+
+            if($this->checkIfOrderHasInvoice($data) === true){
+
+                return [
+                    "message" => "Webhook Received",
+                    "code" => 200
+                ];
+
+            }
+
             if ($type === 'charge.paid') {
                 $this->account->saveAccountIdFromWebhook($account);
             }
@@ -118,5 +145,29 @@ class WebhookManagement implements WebhookManagementInterface
         }
         $order = $this->orderFactory->create()->loadByIncrementId($code);
         return $order->getId() ?? false;
+    }
+    private function magentoOrderStatus($data)
+    {
+        $code = 0;
+        if(array_key_exists('subscription', $data)) {
+            $code = $data['subscription']['code'];
+        }
+        if(array_key_exists('order', $data)) {
+            $code = $data['order']['code'];
+        }
+        $order = $this->orderFactory->create()->loadByIncrementId($code);
+        return $order->getStatus() ?? 'none';
+    }
+    private function checkIfOrderHasInvoice($data)
+    {
+        $code = 0;
+        if(array_key_exists('subscription', $data)) {
+            $code = $data['subscription']['code'];
+        }
+        if(array_key_exists('order', $data)) {
+            $code = $data['order']['code'];
+        }
+        $order = $this->orderFactory->create()->loadByIncrementId($code);
+        return $order->hasInvoices() ?? false;
     }
 }
