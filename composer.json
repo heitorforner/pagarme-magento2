@@ -1,12 +1,12 @@
 {
     "name": "heitorforner/pagarme-magento2",
     "license": "MIT",
-    "version": "2.3.2",
+    "version": "2.3.3",
     "type": "magento2-module",
     "description": "Fork of Magento 2 Module Pagar.me",
     "require": {
         "php": ">=7.1",
-        "heitorforner/pagarme-ecommerce-module-core": "2.3.0"
+        "heitorforner/pagarme-ecommerce-module-core": "2.3.1"
     },
     "require-dev": {
         "phpunit/phpunit": "4.1.0",
