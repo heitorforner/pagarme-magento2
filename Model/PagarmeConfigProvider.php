@@ -223,8 +223,7 @@ class PagarmeConfigProvider implements ConfigProviderInterface
     {
         return
             $this->scopeConfig->getValue(
-                self::XML_PATH_ACTIVE,
-                ScopeInterface::SCOPE_STORE
+                self::XML_PATH_ACTIVE
             );
     }
 

@@ -47,6 +47,15 @@ class PaymentMethodAvailable implements ObserverInterface
     {
         $quote = $observer->getQuote();
 
+        if (!$quote) {
+            return $this;
+        }
+
+        if ($this->pagarmeConfigProvider->getModuleStatus() != 1) {
+            $this->disablePagarmePaymentMethods($observer);
+            return $this;
+        }
+
         $cannotExecuteObserver = !$quote
             || !$this->pagarmeConfigProvider->isRecurrenceEnabled();
         if ($cannotExecuteObserver) {
@@ -68,10 +77,6 @@ class PaymentMethodAvailable implements ObserverInterface
             }
 
             $this->switchPaymentMethodsForRecurrence($observer, $recurrenceProduct);
-        }
-
-        if (!$this->pagarmeConfigProvider->getModuleStatus()) {
-            $this->disablePagarmePaymentMethods($observer);
         }
 
         return $this;
