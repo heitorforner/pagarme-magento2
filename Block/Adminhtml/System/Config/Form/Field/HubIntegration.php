@@ -97,12 +97,21 @@ class HubIntegration extends Field
             $this->getPublicAppKey()
         );
 
-        $params = sprintf(
-            '?redirect=%swebsite/%s/&install_token/%s',
-            $this->getRedirectUrl(),
-            Magento2CoreSetup::getCurrentStoreId(),
-            $this->getInstallToken()
-        );
+
+        if($this->getRequest()->getParam('website') !== null) {
+            $params = sprintf(
+                '?redirect=%swebsite/%s/install_token/%s',
+                $this->getRedirectUrl(),
+                Magento2CoreSetup::getCurrentStoreId(),
+                $this->getInstallToken()
+            );
+        } else {
+            $params = sprintf(
+                '?redirect=%sinstall_token/%s',
+                $this->getRedirectUrl(),
+                $this->getInstallToken()
+            );
+        }
 
         return $baseUrl . $params;
     }
